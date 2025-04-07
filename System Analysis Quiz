@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Systems Analysis - Week 1 Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f8f9fa;
+    }
+    h1 {
+      text-align: center;
+    }
+    .question {
+      margin-bottom: 20px;
+      padding: 15px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .question h3 {
+      margin: 0 0 10px 0;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .result {
+      margin-top: 30px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Systems Analysis - Week 1 Quiz</h1>
+  <form id="quizForm">
+    <div class="question">
+      <h3>1. What is the primary objective of systems analysis?</h3>
+      <label><input type="radio" name="q1" value="C"> To understand user needs and recommend improvements</label><br>
+      <label><input type="radio" name="q1" value="A"> To develop software quickly</label><br>
+      <label><input type="radio" name="q1" value="B"> To purchase off-the-shelf software</label><br>
+      <label><input type="radio" name="q1" value="D"> To eliminate the need for developers</label>
+    </div>
+    <div class="question">
+      <h3>2. Which methodology is best for clear, unchanging requirements?</h3>
+      <label><input type="radio" name="q2" value="C"> Waterfall</label><br>
+      <label><input type="radio" name="q2" value="A"> Agile</label><br>
+      <label><input type="radio" name="q2" value="B"> Spiral</label><br>
+      <label><input type="radio" name="q2" value="D"> Prototyping</label>
+    </div>
+    <div class="question">
+      <h3>3. Agile methodology is linear and each phase must be completed before moving on.</h3>
+      <label><input type="radio" name="q3" value="False"> False</label><br>
+      <label><input type="radio" name="q3" value="True"> True</label>
+    </div>
+    <div class="question">
+      <h3>4. Which tool is used to assess strengths, weaknesses, opportunities, and threats?</h3>
+      <label><input type="radio" name="q4" value="C"> SWOT Analysis</label><br>
+      <label><input type="radio" name="q4" value="A"> DFD</label><br>
+      <label><input type="radio" name="q4" value="B"> UML</label><br>
+      <label><input type="radio" name="q4" value="D"> Use Case Diagram</label>
+    </div>
+    <div class="question">
+      <h3>5. Use Case Diagrams describe system functionality from a user’s point of view.</h3>
+      <label><input type="radio" name="q5" value="True"> True</label><br>
+      <label><input type="radio" name="q5" value="False"> False</label>
+    </div>
+    <button type="button" onclick="checkAnswers()">Submit</button>
+  </form>
+  <div class="result" id="result"></div>
+
+  <script>
+    function checkAnswers() {
+      const answers = {
+        q1: 'C',
+        q2: 'C',
+        q3: 'False',
+        q4: 'C',
+        q5: 'True'
+      };
+      let score = 0;
+      let total = Object.keys(answers).length;
+
+      for (let q in answers) {
+        let userAnswer = document.querySelector(`input[name="${q}"]:checked`);
+        if (userAnswer && userAnswer.value === answers[q]) {
+          score++;
+        }
+      }
+
+      document.getElementById('result').innerText = `You scored ${score} out of ${total}.`;
+    }
+  </script>
+</body>
+</html>
